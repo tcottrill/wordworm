@@ -125,6 +125,7 @@ This keeps the entire game in one file with no fetches and no network dependency
 - `apple-touch-icon.png`, `apple-touch-icon-152x152.png`, `apple-touch-icon-167x167.png`, `icon-192.png`, `icon-512.png`, `favicon-*.png`, `favicon.ico` — app and tab icons.
 - `icon-master.svg` — vector source for the icons.
 - `images/wordworm_screen.png` — screenshot used in this README.
+- [`PROMPT.md`](PROMPT.md) — a self-contained project brief you can paste into [claude.ai](https://claude.ai) to regenerate this game from scratch. Captures every visual, mechanical, and technical decision in the codebase as a structured spec.
 - `LICENSE` — public domain dedication.
 
 ## Credits

@@ -743,7 +743,10 @@ function updateWordUI() {
         uiWord.innerHTML = ""; uiWord.className = "";
         btnSubmit.style.display = 'none'; currentWordIsValid = false; return;
     }
-    const word = selectedTiles.map(t => t.char).join('');
+    // The 'Qu' tile stores its char as the mixed-case string "Qu" so it renders
+    // correctly on the canvas. Normalize to uppercase before comparing against the
+    // dictionary (which is uppercased on load) and for display in the header.
+    const word = selectedTiles.map(t => t.char).join('').toUpperCase();
     currentWordIsValid = (word.length >= 3) && Dictionary.has(word);
 
     if(currentWordIsValid) {
@@ -794,7 +797,8 @@ function scrambleBoard() {
 function submitWord() {
     if (!currentWordIsValid || selectedTiles.length < 3) return;
 
-    const word = selectedTiles.map(t => t.char).join('');
+    // Uppercase for dictionary/display consistency (the 'Qu' tile is mixed case).
+    const word = selectedTiles.map(t => t.char).join('').toUpperCase();
     const pts = calculateScore(selectedTiles);
 
     score += pts;
